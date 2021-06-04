@@ -23,4 +23,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo $GITHUB_REF
+        run: echo $GITHUB_EVENT_NAME
+
+      - name: Show events.json
+        run: cat $GITHUB_EVENT_PATH
