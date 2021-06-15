@@ -30,3 +30,7 @@ jobs:
 
       - name: Show events.json
         run: cat $GITHUB_EVENT_PATH
+        
+      - name: Only on tag
+        run: echo test
+        if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') }}
