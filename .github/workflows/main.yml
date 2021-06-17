@@ -24,4 +24,4 @@ jobs:
       - name: get nginx port
         run: echo "nginx_port=$(docker container ls | grep nginx | sed 's/.*0\.0\.0\.0:\([0-9]*\)-.*/\1/')" >> $GITHUB_ENV
       - name: build image
-        run: docker build --network host --build-arg PORT=${{ env.nginx_port }} .
+        run: docker buildx build --network host --build-arg PORT=${{ env.nginx_port }} .
